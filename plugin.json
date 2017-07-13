@@ -1,0 +1,8 @@
+{
+    "name": "ElasticExportFreieLagerorte",
+    "namespace": "ElasticExportFreieLagerorte",
+    "type": "export",
+    "serviceProvider": "ElasticExportFreieLagerorte\\ElasticExportFreieLagerorteServiceProvider",
+    "version": "1.0.0",
+    "require": ["ElasticExport"]
+}
