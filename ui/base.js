@@ -212,6 +212,30 @@ function changeregal(id) {
     $('#shelvselect').html(html);
 }
 
+function getwarehouses() {
+    var html = "";
+    $.ajax({
+        async: false,
+        type: "GET",
+        url: "/rest/stockmanagement/warehouses",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("accessToken")
+        },
+        success: function(data) {
+            var html = "<select class='form-control' id='freeplaceswarehouses'>";
+
+            $.each(data.entries, function() {
+                html = html + "<option value='" + this.id + "'>" + this.name + "</option>"
+            });
+            html = html + "</select>";
+            $('#warehousesselect').html();
+        },
+        error: function(data) {
+            console.log(data);
+        }
+    });
+}
+
 function returnfreeplaces(exp = "0") {
     var limit = $('#freeplaceslimit').val();
     var type = $('#freeplacestype').val();
@@ -316,7 +340,7 @@ function deletefreeplace(id) {
  * Wenn das dokument ready ist
  */
 $(document).ready(function() {
-
+    getwarehouses();
     /**
      * Wenn ein Ajax-Request gestartet wird
      */

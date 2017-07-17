@@ -24,12 +24,10 @@
             <p class="text-danger" id="ueberschnitt">Die freien Lagerorte werden bei jeder Berechnung lokal gespeichert, bei Mehrfachnutzung des Plugins kann es zu Überschneidungen der Lagerorte kommen.</p>
             <a href="#" onclick="$('#ueberschnitt').fadeOut(200);$(this).fadeOut(200)" class="text-warning">Hinweis ausblenden</a>
             <p>Lager:
-                <select class="form-control" id="freeplaceswarehouses">
-                            <option value="1">TL</option>
-                            <option value="105">RE</option>
-                            <option value="106">AL</option>
-                            <option value="107">XFBA</option>
+                <div id="warehousesselect">
+                    <select class="form-control" id="freeplaceswarehouses">
                     </select>
+                </div>
             </p>
             <br>
             <input type="button" class="btn" value="Lagerorte berechnen" id="calcfreeplaces" onclick="getfreeplaces($('#freeplaceswarehouses').val());">
