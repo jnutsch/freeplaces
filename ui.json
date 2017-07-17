@@ -1,0 +1,10 @@
+{
+    "defaultEntryPoint": "index.html",
+    "namespace": "FreePlaces",
+    "menuEntries": [{
+        "label": "Freie Lagerorte",
+        "menu": "stock",
+        "urlKey": "freeplaces",
+        "entryPoint": "index.html"
+    }]
+}

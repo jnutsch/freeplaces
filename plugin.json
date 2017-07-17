@@ -1,8 +1,8 @@
 {
-    "name": "ElasticExportFreieLagerorte",
-    "namespace": "ElasticExportFreieLagerorte",
-    "type": "export",
-    "serviceProvider": "ElasticExportFreieLagerorte\\ElasticExportFreieLagerorteServiceProvider",
-    "version": "1.0.0",
-    "require": ["ElasticExport"]
+    "name": "Freie_Lagerorte",
+    "description": "Plentymarkets Plugin zum anzeigen der Freien Lagerorte",
+    "namespace": "FreePlaces",
+    "author": "Pascal Herrewyn GmbH",
+    "type": "backend",
+    "serviceProvider": "FreePlaces\\Providers\\FreePlacesServiceProvider"
 }
