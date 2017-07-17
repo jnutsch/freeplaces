@@ -3,9 +3,15 @@
     "description": "Plentymarkets Plugin zum anzeigen & exportieren der Freien Lagerorte",
     "namespace": "FreePlaces",
     "author": "Pascal Herrewyn GmbH",
+    "authorIcon": "phicon.png",
     "keywords": ["lagerorte", "stock", "stockmanagement", "places", "rack", "shelf", "freeplaces", "freielagerorte"],
     "type": "backend",
     "isClosedSource": "true",
+    "pluginIcon": "FreePlaces.png",
     "version": "0.0.4",
-    "serviceProvider": "FreePlaces\\Providers\\FreePlacesServiceProvider"
+    "serviceProvider": "FreePlaces\\Providers\\FreePlacesServiceProvider",
+    "price": 0.00,
+    "license": "MIT",
+    "shortDescription": { "de": "Zeige freie Lagerorte", "en": "Show free locations" },
+    "categories": ["3527"]
 }
