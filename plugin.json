@@ -4,5 +4,6 @@
     "namespace": "FreePlaces",
     "author": "Pascal Herrewyn GmbH",
     "type": "backend",
+    "version": "0.0.1",
     "serviceProvider": "FreePlaces\\Providers\\FreePlacesServiceProvider"
 }
