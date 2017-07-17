@@ -224,7 +224,7 @@ function getwarehouses() {
         success: function(data) {
             var html = "<select class='form-control' id='freeplaceswarehouses'>";
 
-            $.each(data.entries, function() {
+            $.each(data, function() {
                 html = html + "<option value='" + this.id + "'>" + this.name + "</option>"
             });
             html = html + "</select>";
