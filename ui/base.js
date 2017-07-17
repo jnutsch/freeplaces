@@ -319,16 +319,9 @@ $(document).ready(function() {
 
     /**
      * Wenn ein Ajax-Request gestartet wird
-     * 1. Ladebalken wird eingeblentet
-     * 2. accessToken wird geprüft
      */
     $(document).ajaxStart(function() {
         $('#load').fadeIn(100);
-        checkaccess();
-        /**
-         * Wenn ein Ajax-Request beendet wird
-         * Ladebalken wird ausgeblentet
-         */
     }).ajaxStop(function() {
         $('#load').fadeOut(100);
     });
@@ -375,8 +368,4 @@ $(document).ready(function() {
         window.location = $(this).attr('href');
     });
 
-    /**
-     * Definiert Menu/Tab
-     */
-    $('.menutip[menu=' + $('#menu_var').text() + ']').removeClass("menutip");
 });
