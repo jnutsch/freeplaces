@@ -5,6 +5,7 @@
     "author": "Pascal Herrewyn GmbH",
     "keywords": ["lagerorte", "stock", "stockmanagement", "places", "rack", "shelf", "freeplaces", "freielagerorte"],
     "type": "backend",
-    "version": "0.0.2",
+    "isClosedSource": "true",
+    "version": "0.0.3",
     "serviceProvider": "FreePlaces\\Providers\\FreePlacesServiceProvider"
 }
