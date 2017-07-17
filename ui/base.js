@@ -228,7 +228,7 @@ function getwarehouses() {
                 html = html + "<option value='" + this.id + "'>" + this.name + "</option>"
             });
             html = html + "</select>";
-            $('#warehousesselect').html();
+            $('#warehousesselect').html(html);
         },
         error: function(data) {
             console.log(data);

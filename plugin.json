@@ -6,6 +6,6 @@
     "keywords": ["lagerorte", "stock", "stockmanagement", "places", "rack", "shelf", "freeplaces", "freielagerorte"],
     "type": "backend",
     "isClosedSource": "true",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "serviceProvider": "FreePlaces\\Providers\\FreePlacesServiceProvider"
 }
