@@ -8,8 +8,8 @@ class FreePlacesServiceProvider extends ServiceProvider
 {
     public function register()
     {
- 
-    }
+        
+        }
 }
 
 ?>
