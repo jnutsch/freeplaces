@@ -3,7 +3,7 @@
 <head>
     <title>PlentyMarkets | Freie Lagerorte</title>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="base.js"></script>
+    <script src="base.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" href="basic.css">
 </head>
@@ -21,7 +21,7 @@
     <div id="freeplacesdialog" class="container">
         <div id="freeplacessettings">
             <p>Bitte berechnen Sie zuerst Ihre freien Lagerorte.</p>
-            <p class="text-danger" id="ueberschnitt">Die freien Lagerorte sind lokal gespeichert (Außer Sie werden neu berechnet!), bei Mehrfachnutzung des Plugins kann es zu Überschneidungen führen.</p>
+            <p class="text-danger" id="ueberschnitt">Die freien Lagerorte werden bei jeder berechnung lokal gespeichert, bei Mehrfachnutzung des Plugins kann es zu Überschneidungen der Lagerorte kommen.</p>
             <a href="#" onclick="$('#ueberschnitt').fadeOut(200);$(this).fadeOut(200)" class="text-warning">Hinweis ausblenden</a>
             <p>Lager:
                 <select class="form-control" id="freeplaceswarehouses">
