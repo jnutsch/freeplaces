@@ -1,11 +1,3 @@
-## Web page
- 
-Add your web page, e.g. as a link
- 
+
 ## Email
- 
-Add your email address for support issues, e.g. as a link
- 
-## Phone
- 
-Add your phone number
+<a href="mailto:it@faschingshop24.de">it@faschingshop24.de</a>
