@@ -376,11 +376,11 @@ $(document).ready(function() {
         var active = $(this).attr("act");
         if (active == "1") {
             $('#freeplacessettings').fadeOut(100);
-            $(this).val("Men&uuml; einblenden");
+            $(this).val("Menü einblenden");
             $(this).attr("act", "0");
         } else {
             $('#freeplacessettings').fadeIn(100);
-            $(this).val("Men&uuml; ausblenden");
+            $(this).val("Menü ausblenden");
             $(this).attr("act", "1");
         }
     });
