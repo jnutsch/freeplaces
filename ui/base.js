@@ -54,9 +54,6 @@ function findPlaces() {
                     }
 
                 },
-                error: function(data) {
-                    console.log(data);
-                }
             });
 
         }
@@ -189,15 +186,11 @@ function getfreeplaces(warehouseId) {
                     });
 
                 },
-                error: function(data) {
-                    console.log(data)
-                }
+
             });
 
         },
-        error: function(data) {
-            console.log(data)
-        }
+
     });
 
 }
@@ -346,9 +339,14 @@ $(document).ready(function() {
      * Wenn ein Ajax-Request gestartet wird
      */
     $(document).ajaxStart(function() {
-        $('#load').modal('show')
+        $('#error_body').html("");
+        $('#load').modal('show');
     }).ajaxStop(function() {
-        $('#load').modal('hide')
+        $('#load').modal('hide');
+    }).ajaxError(function(data) {
+        var json = $.parseJSON(data.responseText);
+        $('#error_body').append("<div class='find-false'><p>ErrorCode: " + json.error.code + " <br/> Message: " + json.error.message + "</p></div>");
+        $('#error_modal').modal('show');
     });
 
     /**
