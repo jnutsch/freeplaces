@@ -404,4 +404,27 @@ $(document).ready(function() {
     $('.export').click(function() {
         exportfreeplaces();
     });
+
+    setInterval(function() {
+        var pins = $('#loadingpins').attr("pins");
+        switch (pins) {
+            case "0":
+                $('#loadingpins').text(".");
+                $('#loadingpins').attr("pins", "1");
+                break;
+            case "1":
+                $('#loadingpins').text("..");
+                $('#loadingpins').attr("pins", "2");
+                break;
+            case "2":
+                $('#loadingpins').text("...");
+                $('#loadingpins').attr("pins", "3");
+                break;
+            case "3":
+                $('#loadingpins').text("");
+                $('#loadingpins').attr("pins", "0");
+                break;
+
+        }
+    }, 500);
 });
