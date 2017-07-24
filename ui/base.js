@@ -12,7 +12,7 @@ var calced = 0;
  * beachtet werden die LagerCheckboxen
  */
 function findPlaces() {
-    $('#load').show();
+    $('#load').modal('show')
     $('#lagerorteoutput').show();
     $('#lagerorteoutput').html("");
     $('#selectedoutput').hide();
@@ -64,14 +64,14 @@ function findPlaces() {
 
     if (warehousesc == 0) {
         $("#lagerorteoutput").html("<div class='find-false'><p>Bitte wählen Sie ein Lager aus.</p></div>");
-        $('#load').hide();
+        $('#load').modal('hide')
     }
 
 }
 
 
 function exportfreeplaces() {
-    $('#load').show();
+    $('#load').modal('show');
     var csvContent = "data:text/csv;charset=utf-8,";
     csvContent += "storageLocationId;storageLocationName" + "\n";
     $.each(returnfreeplaces("1"), function(key, place) {
@@ -85,7 +85,7 @@ function exportfreeplaces() {
     document.body.appendChild(link); // Required for FF
 
     link.click();
-    $('#load').hide();
+    $('#load').modal('hide')
 }
 
 function getfreeplaces(warehouseId) {
@@ -346,9 +346,9 @@ $(document).ready(function() {
      * Wenn ein Ajax-Request gestartet wird
      */
     $(document).ajaxStart(function() {
-        $('#load').fadeIn(100);
+        $('#load').modal('show')
     }).ajaxStop(function() {
-        $('#load').fadeOut(100);
+        $('#load').modal('hide')
     });
 
     /**
@@ -367,7 +367,7 @@ $(document).ready(function() {
         });
 
         if ($('.findarticle').is(":disabled") && $('#menu_var').text() == "umbuchen" && $('.locationean').is(":disabled")) {
-            $('#load').show();
+            $('#load').modal('show');
             setTimeout(function() {
                 findPlaces();
             }, 20);
