@@ -37,8 +37,7 @@
     <div id="freeplacesdialog" class="container">
         <div id="freeplacessettings">
             <p>Bitte berechnen Sie zuerst Ihre freien Lagerorte.</p>
-            <p class="text-danger" class="ueberschnittmessage">Die freien Lagerorte werden bei jeder Berechnung lokal gespeichert, bei Mehrfachnutzung des Plugins kann es zu Überschneidungen der Lagerorte kommen.</p>
-            <a href="#" class="text-warning ueberschnitt">Hinweis ausblenden</a>
+            <p class="text-danger ueberschnittmessage">Die freien Lagerorte werden bei jeder Berechnung lokal gespeichert, bei Mehrfachnutzung des Plugins kann es zu Überschneidungen der Lagerorte kommen.</p>
             <p>Lager:
                 <div id="warehousesselect">
                     <select class="form-control" id="freeplaceswarehouses">
@@ -68,8 +67,9 @@
             <p></p>
         </div>
         <input type="button" class="btn showplaces" value="Zeige Lagerorte">
-        <br><a href="#" id="togglemenu" act="1" style="font-size: 14px;">Menü ausblenden</a>
-        <br><a href="#" style="font-size: 14px;" class="export">Export Lagerorte</a>
+        <input type="button" class="btn export" value="Export Lagerorte">
+        <input type="button" id="togglemenu" act="1" class="btn" value="Men&uuml; ausblenden">
+        <hr>
         <div id="freeplacesausgabe">
         </div>
     </div>
