@@ -6,6 +6,7 @@ var filledplaces = new Object();
 var places = new Object();
 var freeplaces = new Object();
 var shelves = new Object();
+var calced = 0;
 /**
  * Funktion die, die Lagerorte eines Artikels findet
  * beachtet werden die LagerCheckboxen
@@ -392,4 +393,17 @@ $(document).ready(function() {
         window.location = $(this).attr('href');
     });
 
+    $('.ueberschnitt').click(function() {
+        $('.ueberschnittmessage').fadeOut(200);
+        $(this).fadeOut(200)
+    });
+    $('.calcfreeplaces').click(function() {
+        getfreeplaces($('#freeplaceswarehouses').val());
+    });
+    $('.showplaces').click(function() {
+        returnfreeplaces();
+    });
+    $('.export').click(function() {
+        exportfreeplaces();
+    });
 });

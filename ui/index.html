@@ -9,6 +9,9 @@
 </head>
 
 <body>
+    <terra-overlay #overlay [inputOverlayTitle]="'Showcase overlay with no buttons'" style="display: none">
+        Bitte warten...
+    </terra-overlay>
     <div id="load" style="display: none;">
         <div class="spinner">
             <div class="rect1"></div>
@@ -21,8 +24,8 @@
     <div id="freeplacesdialog" class="container">
         <div id="freeplacessettings">
             <p>Bitte berechnen Sie zuerst Ihre freien Lagerorte.</p>
-            <p class="text-danger" id="ueberschnitt">Die freien Lagerorte werden bei jeder Berechnung lokal gespeichert, bei Mehrfachnutzung des Plugins kann es zu Überschneidungen der Lagerorte kommen.</p>
-            <a href="#" onclick="$('#ueberschnitt').fadeOut(200);$(this).fadeOut(200)" class="text-warning">Hinweis ausblenden</a>
+            <p class="text-danger" class="ueberschnittmessage">Die freien Lagerorte werden bei jeder Berechnung lokal gespeichert, bei Mehrfachnutzung des Plugins kann es zu Überschneidungen der Lagerorte kommen.</p>
+            <a href="#" class="text-warning ueberschnitt">Hinweis ausblenden</a>
             <p>Lager:
                 <div id="warehousesselect">
                     <select class="form-control" id="freeplaceswarehouses">
@@ -30,7 +33,7 @@
                 </div>
             </p>
             <br>
-            <input type="button" class="btn" value="Lagerorte berechnen" id="calcfreeplaces" onclick="getfreeplaces($('#freeplaceswarehouses').val());">
+            <input type="button" class="btn calcfreeplaces" value="Lagerorte berechnen">
             <hr>
             <p>Limit: </p><input type="number" id="freeplaceslimit" class="form-control" value="4" min="1">
             <p>Typ: </p><select class="form-control" id="freeplacestype">
@@ -51,9 +54,9 @@
             </select></div>
             <p></p>
         </div>
-        <input type="button" class="btn" value="Zeige Lagerorte" id="showplaces" onclick="returnfreeplaces();">
+        <input type="button" class="btn showplaces" value="Zeige Lagerorte">
         <br><a href="#" id="togglemenu" act="1" style="font-size: 14px;">Menü ausblenden</a>
-        <br><a href="#" style="font-size: 14px;" onclick="exportfreeplaces();">Export Lagerorte</a>
+        <br><a href="#" style="font-size: 14px;" class="export">Export Lagerorte</a>
         <div id="freeplacesausgabe">
         </div>
     </div>
