@@ -160,6 +160,10 @@ script {
     margin-bottom: 5px;
 }
 
+.btn:disabled {
+    cursor: not-allowed !important;
+}
+
 
 /**
 * SPINNER
