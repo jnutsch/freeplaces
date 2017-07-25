@@ -12,6 +12,7 @@
     "serviceProvider": "FreePlaces\\Providers\\FreePlacesServiceProvider",
     "price": 0.00,
     "license": "Copyright by Pascal Herrewyn GmbH",
+    "javaScriptFiles": "ui/base.js",
     "shortDescription": {
         "de": "Plentymarkets Plugin zum anzeigen & exportieren der Freien Lagerorte",
         "en": "PlentymarketsPlugin that shows free storage locations"
