@@ -42,14 +42,27 @@
         <div id="freeplacessettings">
             <p>Bitte berechenen Sie zuerst Ihre freien Lagerorte</p>
             <p class="text-danger ueberschnittmessage">Die freien Lagerorte werden bei jeder Berechnung lokal gespeichert, bei Mehrfachnutzung des Plugins kann es zu Überschneidungen der Lagerorte kommen.</p>
-            <p>Lager:
-                <div id="warehousesselect">
-                    <select class="form-control" id="freeplaceswarehouses">
-                    </select>
+            <div class="row">
+                <h2>Menü</h2>
+                <br />
+                <div class="col">
+                    <p>Lager:
+                        <div id="warehousesselect">
+                            <select class="form-control" id="freeplaceswarehouses">
+                        </select>
+                        </div>
+                    </p>
+                    <input type="button" class="btn calcfreeplaces" value="Lagerorte berechnen">
                 </div>
-            </p>
+                <div class="col">
+                    Lagerorte
+                    <br />
+                    <input type="button" class="btn showplaces" value="Anzeigen">
+                    <input type="button" class="btn export" value="Exportieren">
+                </div>
+            </div>
             <br>
-            <input type="button" class="btn calcfreeplaces" value="Lagerorte berechnen">
+
             <hr>
             <p>Limit: </p><input type="number" id="freeplaceslimit" class="form-control" value="4" min="1">
             <p>Typ: </p><select class="form-control" id="freeplacestype">
@@ -70,9 +83,7 @@
             </select></div>
             <p></p>
         </div>
-        <input type="button" class="btn showplaces" value="Zeige Lagerorte">
-        <input type="button" class="btn export" value="Export Lagerorte">
-        <input type="button" id="togglemenu" act="1" class="btn" value="Men&uuml; ausblenden">
+
         <div id="freeplacesausgabe">
         </div>
         <br />
