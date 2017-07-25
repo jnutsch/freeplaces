@@ -235,12 +235,7 @@ input[type=checkbox]:hover {
     background-color: #008EBD;
     color: white;
     border-radius: 0px;
-}
-
-.btn {
-    background-color: #008EBD;
-    color: white;
-    border-radius: 0px;
+    font-size: 14px;
 }
 
 input {
