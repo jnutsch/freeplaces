@@ -421,7 +421,7 @@ $(document).ready(function() {
                 $('#loadingpins').attr("pins", "3");
                 break;
             case "3":
-                $('#loadingpins').text("");
+                $('#loadingpins').text("....");
                 $('#loadingpins').attr("pins", "0");
                 break;
 

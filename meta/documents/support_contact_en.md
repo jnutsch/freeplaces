@@ -1,4 +1,3 @@
 
 ## Email
-<a href="mailto:it@faschingshop24.de">it@faschingshop24.de</a>
-Contact: Dominik Jödecke
+it@faschingshop24.de
