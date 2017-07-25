@@ -42,49 +42,53 @@
         <div id="freeplacessettings">
             <p>Bitte berechenen Sie zuerst Ihre freien Lagerorte</p>
             <p class="text-danger ueberschnittmessage">Die freien Lagerorte werden bei jeder Berechnung lokal gespeichert, bei Mehrfachnutzung des Plugins kann es zu Überschneidungen der Lagerorte kommen.</p>
+            <h5>Menü</h5>
             <div class="row">
-                <h2>Menü</h2>
-                <br />
                 <div class="col">
-                    <p>Lager:
-                        <div id="warehousesselect">
-                            <select class="form-control" id="freeplaceswarehouses">
+                    Lager:
+                    <div id="warehousesselect" style="display: inline-block;">
+                        <select id="freeplaceswarehouses" style="display: inline-block;">
                         </select>
-                        </div>
-                    </p>
+                    </div>
+                    <br />
                     <input type="button" class="btn calcfreeplaces" value="Lagerorte berechnen">
                 </div>
                 <div class="col">
-                    Lagerorte
+                    <div style="display: inline-block">Lagerorte</div>
                     <br />
                     <input type="button" class="btn showplaces" value="Anzeigen">
                     <input type="button" class="btn export" value="Exportieren">
                 </div>
             </div>
-            <br>
-
-            <hr>
-            <p>Limit: </p><input type="number" id="freeplaceslimit" class="form-control" value="4" min="1">
-            <p>Typ: </p><select class="form-control" id="freeplacestype">
+            <br />
+            <h5>Filter</h5>
+            <div class="row">
+                <div class="filter col">
+                    <p>Limit:&nbsp;</p><input type="number" id="freeplaceslimit" value="4" min="1">
+                    <p>Typ:&nbsp;</p><select id="freeplacestype">
                 <option value="all">Alle</option>
                 <option value="small">klein</option>
                 <option value="medium">mittel</option>
                 <option value="large">groß</option>
                 <option value="europallet">Europalette</option>
             </select>
-            <p>Regal: </p>
-            <div id="rackselect"><select class="form-control" id="freeplacesracks">
+                    <p>Regal:&nbsp;</p>
+                    <div id="rackselect"><select id="freeplacesracks">
             </select></div>
-            <p></p>
+                    <p></p>
 
-            <p>Boden: </p>
-            <div id="shelvselect"><select class="form-control" id="shelvselects">
+                    <p>Boden:&nbsp;</p>
+                    <div id="shelvselect"><select id="shelvselects">
                 <option value="all">Alle</option>
             </select></div>
-            <p></p>
+                    <p></p>
+                </div>
+            </div>
         </div>
-
-        <div id="freeplacesausgabe">
+        <br /> Ausgabe
+        <div class="row">
+            <div id="freeplacesausgabe" class="col">
+            </div>
         </div>
         <br />
     </div>

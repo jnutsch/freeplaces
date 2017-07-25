@@ -131,8 +131,29 @@ body {
     margin-bottom: 14px;
 }
 
+.calcfreeplaces {
+    margin-top: 0px !important;
+}
+
 .login h3 {
     margin-top: 10px;
+}
+
+.filter * {
+    display: inline-block;
+}
+
+.filter {
+    padding-top: 5px;
+}
+
+.col {
+    border: 1px solid rgba(0, 0, 0, .1)
+}
+
+.col * {
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 

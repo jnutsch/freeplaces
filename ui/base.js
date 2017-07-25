@@ -138,7 +138,7 @@ function getfreeplaces(warehouseId) {
                             itemsPerPage: "9999999"
                         },
                         success: function(data) {
-                            var xhtml = "<select id='freeplacesracks' class='form-control'><option value='all'>Alle</option>";
+                            var xhtml = "<select id='freeplacesracks' ><option value='all'>Alle</option>";
                             $.each(data.entries, function() {
                                 xhtml = xhtml + "<option value='" + this.id + "'>" + this.name + "</option>";
                                 $.ajax({
@@ -195,7 +195,7 @@ function getfreeplaces(warehouseId) {
 }
 
 function changeregal(id) {
-    var html = "<select id='shelvselects' class='form-control'><option value='all'>Alle</option>";
+    var html = "<select id='shelvselects' ><option value='all'>Alle</option>";
     $.each(shelves, function() {
         if (this.rackId == id) {
             html = html + "<option value='" + this.id + "'>" + this.name + "</option>";
@@ -215,7 +215,7 @@ function getwarehouses() {
             "Authorization": "Bearer " + localStorage.getItem("accessToken")
         },
         success: function(data) {
-            var html = "<select class='form-control' id='freeplaceswarehouses'>";
+            var html = "<select id='freeplaceswarehouses'>";
 
             $.each(data, function() {
                 html = html + "<option value='" + this.id + "'>" + this.name + "</option>"
@@ -235,7 +235,7 @@ function returnfreeplaces(exp = "0") {
         var shelvId = $('#shelvselects').val();
         var limitzaehler = 0;
         var results = 0;
-        var html = "<hr><table class='table table-striped'><th>Lagerorte</th>";
+        var html = "<hr><table class='table table-striped'><th>storageLocationId</th><th>storageLocationName</th>";
         var xreturn = new Object();
         $.each(freeplaces, function(id, place) {
             if (limitzaehler == limit) {
@@ -245,14 +245,14 @@ function returnfreeplaces(exp = "0") {
             if (rackId == "all" && shelvId == "all" && type == "all") {
                 limitzaehler++;
                 results++;
-                html = html + "<tr><td>" + place.name + "</td></tr>";
+                html = html + "<tr><td>" + id + "</td><td>" + place.name + "</td></tr>";
                 xreturn[results] = new Object();
                 xreturn[results] = [id, place.name];
             } else if (rackId == "all" && shelvId == "all" && type != "all") {
                 if (place.type == type) {
                     limitzaehler++;
                     results++;
-                    html = html + "<tr><td>" + place.name + "</td></tr>";
+                    html = html + "<tr><td>" + id + "</td><td>" + place.name + "</td></tr>";
                     xreturn[results] = new Object();
                     xreturn[results] = [id, place.name];
                 }
@@ -260,7 +260,7 @@ function returnfreeplaces(exp = "0") {
                 if (place.shelf == shelvId) {
                     limitzaehler++;
                     results++;
-                    html = html + "<tr><td>" + place.name + "</td></tr>";
+                    html = html + "<tr><td>" + id + "</td><td>" + place.name + "</td></tr>";
                     xreturn[results] = new Object();
                     xreturn[results] = [id, place.name];
                 }
@@ -268,7 +268,7 @@ function returnfreeplaces(exp = "0") {
                 if (place.rack == rackId) {
                     limitzaehler++;
                     results++;
-                    html = html + "<tr><td>" + place.name + "</td></tr>";
+                    html = html + "<tr><td>" + id + "</td><td>" + place.name + "</td></tr>";
                     xreturn[results] = new Object();
                     xreturn[results] = [id, place.name];
                 }
@@ -276,7 +276,7 @@ function returnfreeplaces(exp = "0") {
                 if (place.shelf == shelvId && place.type == type) {
                     limitzaehler++;
                     results++;
-                    html = html + "<tr><td>" + place.name + "</td></tr>";
+                    html = html + "<tr><td>" + id + "</td><td>" + place.name + "</td></tr>";
                     xreturn[results] = new Object();
                     xreturn[results] = [id, place.name];
                 }
@@ -284,7 +284,7 @@ function returnfreeplaces(exp = "0") {
                 if (place.shelf == shelvId && place.rack == rackId) {
                     limitzaehler++;
                     results++;
-                    html = html + "<tr><td>" + place.name + "</td></tr>";
+                    html = html + "<tr><td>" + id + "</td><td>" + place.name + "</td></tr>";
                     xreturn[results] = new Object();
                     xreturn[results] = [id, place.name];
                 }
@@ -292,7 +292,7 @@ function returnfreeplaces(exp = "0") {
                 if (place.rack == rackId && place.type == type) {
                     limitzaehler++;
                     results++;
-                    html = html + "<tr><td>" + place.name + "</td></tr>";
+                    html = html + "<tr><td>" + id + "</td><td>" + place.name + "</td></tr>";
                     xreturn[results] = new Object();
                     xreturn[results] = [id, place.name];
                 }
@@ -300,7 +300,7 @@ function returnfreeplaces(exp = "0") {
                 if (place.shelf == shelvId && place.rack == rackId && place.type == type) {
                     limitzaehler++;
                     results++;
-                    html = html + "<tr><td>" + place.name + "</td></tr>";
+                    html = html + "<tr><td>" + id + "</td><td>" + place.name + "</td></tr>";
                     xreturn[results] = new Object();
                     xreturn[results] = [id, place.name];
                 }
