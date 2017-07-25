@@ -16,8 +16,15 @@ Settings » Basic Settings » User » Accounts » {User} » Right » REST-API
 ##Step 1. - calculating your free storage locations
 
 Choose your warehouse from which you want to calculate your free storage location.
+<br />
+<img src="http://i.imgur.com/402skln.png"></img>
+<br />
 
 Then you only have to click the button "Lagerorte Berechnen".
+
+<br />
+<img src="http://i.imgur.com/CfpcknS.png"></img>
+<br />
 
 <div class="alert alert-warning" role="alert">
     Many storage locations means longer loading times.
@@ -76,8 +83,20 @@ Now you have some options to filter your storage locations.
     Your racks are shown after the calculation
 </div>
 
+<br />
+<img src="http://i.imgur.com/iUvYnIi.png"></img>
+<br />
+
 ##Step. 3 - show/export your storage locations
 
 As soon as we have made all the settings, we have the options to show us the storage locations or to export them.
+
+<br />
+<img src="http://i.imgur.com/y46TYaq.png"></img>
+<br />
+
 Done!
 
+<br />
+<img src="http://i.imgur.com/SQrpiAR.png"></img>
+<br />

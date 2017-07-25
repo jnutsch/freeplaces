@@ -17,10 +17,18 @@ Einstellungen » Grundeinstellungen » Benutzer » Konten » {Benutzer} » Berec
 
 Wählt euer Lager aus denen Ihr die freien Lagerorte Berechnen wollt.
 
+<br />
+<img src="http://i.imgur.com/402skln.png"></img>
+<br />
+
 Daraufhin müsst Ihr nur noch den Button "Lagerorte berechnen" betätigen.
 
+<br />
+<img src="http://i.imgur.com/CfpcknS.png"></img>
+<br />
+
 <div class="alert alert-warning" role="alert">
-    Je komplexer eure Lagerhaltung desto längere Ladezeiten.
+    Je komplexer eure Lagerhaltung desto längere Ladezeiten sind zu erwarten.
 </div>
 
 ##2. Schritt - Filter einstellungen
@@ -76,8 +84,20 @@ Jetzt, da die Berechnung fertiggestellt ist, haben wir die Möglichkeit unsere f
     Die Regale werden erst angezeigt nach der Berechnung der Lagerorte.
 </div>
 
+<br />
+<img src="http://i.imgur.com/iUvYnIi.png"></img>
+<br />
+
 ##3. Schritt - Ausgabe/Export der Lagerorte
 
 Sobald wir alle Einstellungen getroffen haben, haben wir die Möglichkeit uns die Lagerorte auszugeben oder diese auch zu exportieren.
+
+<br />
+<img src="http://i.imgur.com/y46TYaq.png"></img>
+<br />
+
 Fertig!
 
+<br />
+<img src="http://i.imgur.com/SQrpiAR.png"></img>
+<br />
