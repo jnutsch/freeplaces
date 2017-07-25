@@ -135,6 +135,10 @@ body {
     margin-top: 0px !important;
 }
 
+script {
+    display: none !important;
+}
+
 .login h3 {
     margin-top: 10px;
 }

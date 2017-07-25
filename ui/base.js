@@ -138,7 +138,7 @@ function getfreeplaces(warehouseId) {
                             itemsPerPage: "9999999"
                         },
                         success: function(data) {
-                            var xhtml = "<select id='freeplacesracks' ><option value='all'>Alle</option>";
+                            var xhtml = "<select id='freeplacesracks'><option value='all'>Alle</option>";
                             $.each(data.entries, function() {
                                 xhtml = xhtml + "<option value='" + this.id + "'>" + this.name + "</option>";
                                 $.ajax({
