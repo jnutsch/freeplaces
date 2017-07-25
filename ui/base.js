@@ -317,8 +317,7 @@ function returnfreeplaces(exp = "0") {
         }
         return xreturn;
     } else {
-        $('#error_body').html("<p>Bitte berechnen Sie zuerst Ihre freien Lagerorte</p>");
-        $('#error_modal').modal('show');
+        alert("Bitte berechnen Sie zuerst Ihre freien Lagerorte");
     }
 }
 
@@ -342,6 +341,7 @@ $(document).ready(function() {
     $(document).ajaxStart(function() {
         $('#error_body').html("");
         $('#load').modal('show');
+        $('#load').modal('focus');
     }).ajaxStop(function() {
         $('#load').modal('hide');
     }).ajaxError(function(data) {
