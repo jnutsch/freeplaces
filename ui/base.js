@@ -162,6 +162,7 @@ function getfreeplaces(warehouseId) {
                             xhtml = xhtml + "</select><script>$(document).ready(function(){$('#freeplacesracks').change( function(){changeregal($(this).val());});});</script>";
                             $('#rackselect').html(xhtml);
                             alert("Berechnung erfolgreich.");
+                            $('.btn').removeAttr("disabled");
                         }
                     });
 
@@ -235,7 +236,7 @@ function returnfreeplaces(exp = "0") {
         var shelvId = $('#shelvselects').val();
         var limitzaehler = 0;
         var results = 0;
-        var html = "<table class='table table-striped table-bordered' style='font-size: 14px;'><th>storageLocationId</th><th>storageLocationName</th>";
+        var html = "<table class='table table-striped table-bordered'><th>storageLocationId</th><th>storageLocationName</th>";
         var xreturn = new Object();
         $.each(freeplaces, function(id, place) {
             if (limitzaehler == limit) {
@@ -427,4 +428,8 @@ $(document).ready(function() {
 
         }
     }, 500);
+
+    setTimeout(function() {
+        $('.ueberschnittmessage').fadeOut(250);
+    }, 7500);
 });
