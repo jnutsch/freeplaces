@@ -13,8 +13,8 @@
     "price": 0.00,
     "license": "Copyright by Pascal Herrewyn GmbH",
     "shortDescription": {
-        "de": "Plentymarkets Plugin zum anzeigen & exportieren der Freien Lagerorte",
-        "en": "PlentymarketsPlugin that shows free storage locations"
+        "de": "FreePlaces ist ein PlentyMarkets Plugin welches euch in wenigen Schritten eure freien Lagerorte anzeigt oder auch exportieren lässt.",
+        "en": "FreePlaces is a PlentyMarkets Plugin which shows you in few steps your free storage locations."
     },
 
     "categories": ["3521"]
