@@ -72,7 +72,6 @@ function exportfreeplaces() {
     var csvContent = "data:text/csv;charset=utf-8,";
     csvContent += "storageLocationId;storageLocationName" + "\n";
     $.each(returnfreeplaces("1"), function(key, place) {
-        console.log(place);
         csvContent += place[0] + ";" + place[1] + "\n";
     });
     var encodedUri = encodeURI(csvContent);
@@ -224,101 +223,103 @@ function getwarehouses() {
             html = html + "</select>";
             $('#warehousesselect').html(html);
         },
-        error: function(data) {
-            console.log(data);
-        }
+        error: function(data) {}
     });
 }
 
 function returnfreeplaces(exp = "0") {
-    var limit = $('#freeplaceslimit').val();
-    var type = $('#freeplacestype').val();
-    var rackId = $('#freeplacesracks').val();
-    var shelvId = $('#shelvselects').val();
-    var limitzaehler = 0;
-    var results = 0;
-    var html = "<hr><table class='table table-striped'><th>Lagerorte</th>";
-    var xreturn = new Object();
-    $.each(freeplaces, function(id, place) {
-        if (limitzaehler == limit) {
-            return false;
-        }
+    if (Object.keys(places).length > 0) {
+        var limit = $('#freeplaceslimit').val();
+        var type = $('#freeplacestype').val();
+        var rackId = $('#freeplacesracks').val();
+        var shelvId = $('#shelvselects').val();
+        var limitzaehler = 0;
+        var results = 0;
+        var html = "<hr><table class='table table-striped'><th>Lagerorte</th>";
+        var xreturn = new Object();
+        $.each(freeplaces, function(id, place) {
+            if (limitzaehler == limit) {
+                return false;
+            }
 
-        if (rackId == "all" && shelvId == "all" && type == "all") {
-            limitzaehler++;
-            results++;
-            html = html + "<tr><td>" + place.name + "</td></tr>";
-            xreturn[results] = new Object();
-            xreturn[results] = [id, place.name];
-        } else if (rackId == "all" && shelvId == "all" && type != "all") {
-            if (place.type == type) {
+            if (rackId == "all" && shelvId == "all" && type == "all") {
                 limitzaehler++;
                 results++;
                 html = html + "<tr><td>" + place.name + "</td></tr>";
                 xreturn[results] = new Object();
                 xreturn[results] = [id, place.name];
+            } else if (rackId == "all" && shelvId == "all" && type != "all") {
+                if (place.type == type) {
+                    limitzaehler++;
+                    results++;
+                    html = html + "<tr><td>" + place.name + "</td></tr>";
+                    xreturn[results] = new Object();
+                    xreturn[results] = [id, place.name];
+                }
+            } else if (rackId == "all" && shelvId != "all" && type == "all") {
+                if (place.shelf == shelvId) {
+                    limitzaehler++;
+                    results++;
+                    html = html + "<tr><td>" + place.name + "</td></tr>";
+                    xreturn[results] = new Object();
+                    xreturn[results] = [id, place.name];
+                }
+            } else if (rackId != "all" && shelvId == "all" && type == "all") {
+                if (place.rack == rackId) {
+                    limitzaehler++;
+                    results++;
+                    html = html + "<tr><td>" + place.name + "</td></tr>";
+                    xreturn[results] = new Object();
+                    xreturn[results] = [id, place.name];
+                }
+            } else if (rackId == "all" && shelvId != "all" && type != "all") {
+                if (place.shelf == shelvId && place.type == type) {
+                    limitzaehler++;
+                    results++;
+                    html = html + "<tr><td>" + place.name + "</td></tr>";
+                    xreturn[results] = new Object();
+                    xreturn[results] = [id, place.name];
+                }
+            } else if (rackId != "all" && shelvId != "all" && type == "all") {
+                if (place.shelf == shelvId && place.rack == rackId) {
+                    limitzaehler++;
+                    results++;
+                    html = html + "<tr><td>" + place.name + "</td></tr>";
+                    xreturn[results] = new Object();
+                    xreturn[results] = [id, place.name];
+                }
+            } else if (rackId != "all" && shelvId == "all" && type != "all") {
+                if (place.rack == rackId && place.type == type) {
+                    limitzaehler++;
+                    results++;
+                    html = html + "<tr><td>" + place.name + "</td></tr>";
+                    xreturn[results] = new Object();
+                    xreturn[results] = [id, place.name];
+                }
+            } else if (rackId != "all" && shelvId != "all" && type != "all") {
+                if (place.shelf == shelvId && place.rack == rackId && place.type == type) {
+                    limitzaehler++;
+                    results++;
+                    html = html + "<tr><td>" + place.name + "</td></tr>";
+                    xreturn[results] = new Object();
+                    xreturn[results] = [id, place.name];
+                }
             }
-        } else if (rackId == "all" && shelvId != "all" && type == "all") {
-            if (place.shelf == shelvId) {
-                limitzaehler++;
-                results++;
-                html = html + "<tr><td>" + place.name + "</td></tr>";
-                xreturn[results] = new Object();
-                xreturn[results] = [id, place.name];
-            }
-        } else if (rackId != "all" && shelvId == "all" && type == "all") {
-            if (place.rack == rackId) {
-                limitzaehler++;
-                results++;
-                html = html + "<tr><td>" + place.name + "</td></tr>";
-                xreturn[results] = new Object();
-                xreturn[results] = [id, place.name];
-            }
-        } else if (rackId == "all" && shelvId != "all" && type != "all") {
-            if (place.shelf == shelvId && place.type == type) {
-                limitzaehler++;
-                results++;
-                html = html + "<tr><td>" + place.name + "</td></tr>";
-                xreturn[results] = new Object();
-                xreturn[results] = [id, place.name];
-            }
-        } else if (rackId != "all" && shelvId != "all" && type == "all") {
-            if (place.shelf == shelvId && place.rack == rackId) {
-                limitzaehler++;
-                results++;
-                html = html + "<tr><td>" + place.name + "</td></tr>";
-                xreturn[results] = new Object();
-                xreturn[results] = [id, place.name];
-            }
-        } else if (rackId != "all" && shelvId == "all" && type != "all") {
-            if (place.rack == rackId && place.type == type) {
-                limitzaehler++;
-                results++;
-                html = html + "<tr><td>" + place.name + "</td></tr>";
-                xreturn[results] = new Object();
-                xreturn[results] = [id, place.name];
-            }
-        } else if (rackId != "all" && shelvId != "all" && type != "all") {
-            if (place.shelf == shelvId && place.rack == rackId && place.type == type) {
-                limitzaehler++;
-                results++;
-                html = html + "<tr><td>" + place.name + "</td></tr>";
-                xreturn[results] = new Object();
-                xreturn[results] = [id, place.name];
-            }
-        }
 
-    });
-    html = html + "</table>";
-    console.log(results);
-    if (exp == "0") {
-        if (results > 0) {
-            $('#freeplacesausgabe').html(html);
-        } else {
-            $('#freeplacesausgabe').html("<hr><p style='color: red;'>Keine Lagerorte gefunden.</p>");
+        });
+        html = html + "</table>";
+        if (exp == "0") {
+            if (results > 0) {
+                $('#freeplacesausgabe').html(html);
+            } else {
+                $('#freeplacesausgabe').html("<hr><p style='color: red;'>Keine Lagerorte gefunden.</p>");
+            }
         }
+        return xreturn;
+    } else {
+        $('#error_body').html("<p>Bitte berechnen Sie zuerst Ihre freien Lagerorte</p>");
+        $('#error_modal').modal('show');
     }
-    return xreturn;
 }
 
 function togglefreielagerorte() {

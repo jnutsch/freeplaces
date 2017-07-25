@@ -1,3 +1,3 @@
 
-## Email
-it@faschingshop24.de
+## Support
+E-Mail: <a href="mailto:it@faschingshop24.de">it@faschingshop24.de</a>
