@@ -2,26 +2,31 @@
 
 FreePlaces ist ein PlentyMarkets Plugin welches euch in wenigen Schritten eure freien Lagerorte anzeigt oder auch exportieren lässt.
 
+<div class="alert alert-danger" role="alert">
+    <b>Wichtig!</b><br />Die Lagerorte werden nach der Berechnung lokal gespeichert. Bei Mehrfachnutzung des Plugins kann es zu Überschneidungen der Lagerorte kommen.
+</div>
+
 ##Berechtigungen
 <div class="alert alert-warning" role="alert">
     Der Benutzer benötigt die Berechtigungen der REST-API im Bereich Warenbestände.
 </div>
+
 Einstellungen » Grundeinstellungen » Benutzer » Konten » {Benutzer} » Berechtigung » REST-API
-[BILD]
 
 ##1. Schritt - Berechnung der Lagerorte
 
 Wählt euer Lager aus denen Ihr die freien Lagerorte Berechnen wollt.
 
-[BILD]
-
 Daraufhin müsst Ihr nur noch den Button "Lagerorte berechnen" betätigen.
+
 <div class="alert alert-warning" role="alert">
     Je komplexer eure Lagerhaltung desto längere Ladezeiten.
 </div>
 
 ##2. Schritt - Filter einstellungen
+
 Jetzt, da die Berechnung fertiggestellt ist, haben wir die Möglichkeit unsere freien Lagerorte nach bestimmten Kriterien auszuwählen.
+
 <table>
 	<thead>
 		<th>
@@ -66,6 +71,7 @@ Jetzt, da die Berechnung fertiggestellt ist, haben wir die Möglichkeit unsere f
 		</tr>
 	</tbody>
 </table>
+
 <div class="alert alert-warning" role="alert">
     Die Regale werden erst angezeigt nach der Berechnung der Lagerorte.
 </div>
@@ -73,6 +79,5 @@ Jetzt, da die Berechnung fertiggestellt ist, haben wir die Möglichkeit unsere f
 ##3. Schritt - Ausgabe/Export der Lagerorte
 
 Sobald wir alle Einstellungen getroffen haben, haben wir die Möglichkeit uns die Lagerorte auszugeben oder diese auch zu exportieren.
-[BILD]
-[BILD]
 Fertig!
+
