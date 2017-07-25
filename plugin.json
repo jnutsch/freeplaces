@@ -1,6 +1,6 @@
 {
     "name": "FreePlaces",
-    "description": "Plentymarkets Plugin zum anzeigen & exportieren der Freien Lagerorte",
+    "description": "Plentymarkets Plugin zum anzeigen & exportieren der freien Lagerorte",
     "namespace": "FreePlaces",
     "author": "Pascal Herrewyn GmbH",
     "authorIcon": "icon_author_xs.png",
