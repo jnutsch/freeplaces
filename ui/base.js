@@ -341,7 +341,6 @@ $(document).ready(function() {
     $(document).ajaxStart(function() {
         $('#error_body').html("");
         $('#load').modal('show');
-        $('#load').modal('focus');
     }).ajaxStop(function() {
         $('#load').modal('hide');
     }).ajaxError(function(data) {
