@@ -92,7 +92,8 @@ function generatePdf(){
           return true;
       }
     };
-    doc.fromHTML(returnfreeplaces("1"), 15, 15, {
+    var bootstrap = '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">';
+    doc.fromHTML(bootstrap.returnfreeplaces("1"), 15, 15, {
           'width': 170,
               'elementHandlers': pdfhandler
       });
