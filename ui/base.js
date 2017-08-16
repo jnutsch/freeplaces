@@ -7,6 +7,7 @@ var places = new Object();
 var freeplaces = new Object();
 var shelves = new Object();
 var calced = 0;
+var userId = 0;
 /**
  * Funktion die, die Lagerorte eines Artikels findet
  * beachtet werden die LagerCheckboxen
@@ -82,6 +83,20 @@ function exportfreeplaces() {
 
     link.click();
     $('#load').modal('hide')
+}
+
+function generatePdf(){
+    var doc = new jsPDF();
+    var pdfhandler = {
+      'pdfElementHandler': function (element, renderer) {
+          return true;
+      }
+    };
+    doc.fromHTML(returnfreeplaces("1"), 15, 15, {
+          'width': 170,
+              'elementHandlers': pdfhandler
+      });
+      doc.save('FreePlaces.pdf');
 }
 
 function getfreeplaces(warehouseId) {
@@ -226,6 +241,22 @@ function getwarehouses() {
         },
         error: function(data) {}
     });
+
+}
+
+function getuser() {
+    $.ajax({
+        async: false,
+        type: "GET",
+        url: "/rest/authorized_user",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("accessToken")
+        },
+        success: function(data) {
+            userId = data.userId;
+        },
+        error: function(data) {}
+    });
 }
 
 function returnfreeplaces(exp = "0") {
@@ -316,6 +347,10 @@ function returnfreeplaces(exp = "0") {
                 $('#freeplacesausgabe').html("<hr><p style='color: red;'>Keine Lagerorte gefunden.</p>");
             }
         }
+        if(exp == "1")
+        {
+          return html;
+        }
         return xreturn;
     } else {
         alert("Bitte berechnen Sie zuerst Ihre freien Lagerorte");
@@ -404,6 +439,9 @@ $(document).ready(function() {
     });
     $('.export').click(function() {
         exportfreeplaces();
+    });
+    $('.pdf').click( function(){
+        generatePdf();
     });
 
     setInterval(function() {
