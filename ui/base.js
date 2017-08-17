@@ -72,7 +72,7 @@ function exportfreeplaces() {
     $('#load').modal('show');
     var csvContent = "data:text/csv;charset=utf-8,";
     csvContent += "storageLocationId;storageLocationName" + "\n";
-    $.each(returnfreeplaces("1"), function(key, place) {
+    $.each(returnfreeplaces("2"), function(key, place) {
         csvContent += place[0] + ";" + place[1] + "\n";
     });
     var encodedUri = encodeURI(csvContent);
