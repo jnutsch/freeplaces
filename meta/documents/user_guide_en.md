@@ -1,4 +1,4 @@
-#FreePlaces PlentyMarkets Plugin
+# FreePlaces PlentyMarkets Plugin
 
 FreePlaces is a PlentyMarkets Plugin which shows you in few steps your free storage locations.
 
@@ -6,14 +6,14 @@ FreePlaces is a PlentyMarkets Plugin which shows you in few steps your free stor
     <b>Important!</b><br />The storage locations are stored locally according to the calculation. If the plugin is used multiple times, overlapping of the storage locations can occur.
 </div>
 
-##Rights
+## Rights
 <div class="alert alert-warning" role="alert">
     The user needs the rights from the REST-API for StockManagement/Warenbestände.
 </div>
 
 Settings » Basic Settings » User » Accounts » {User} » Right » REST-API
 
-##Step 1. - calculating your free storage locations
+## Step 1. - calculating your free storage locations
 
 Choose your warehouse from which you want to calculate your free storage location.
 <br />
@@ -30,7 +30,7 @@ Then you only have to click the button "Lagerorte Berechnen".
     Many storage locations means longer loading times.
 </div>
 
-##Step 2. - filter settings
+## Step 2. - filter settings
 
 Now you have some options to filter your storage locations.
 
@@ -87,7 +87,7 @@ Now you have some options to filter your storage locations.
 <img src="http://i.imgur.com/iUvYnIi.png"></img>
 <br />
 
-##Step. 3 - show/export your storage locations
+## Step. 3 - show/export your storage locations
 
 As soon as we have made all the settings, we have the options to show us the storage locations or to export them.
 

@@ -8,7 +8,7 @@
     "type": "backend",
     "isClosedSource": "true",
     "pluginIcon": "icon_plugin_xs.png",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "serviceProvider": "FreePlaces\\Providers\\FreePlacesServiceProvider",
     "price": 0.00,
     "license": "Copyright by Pascal Herrewyn GmbH",
