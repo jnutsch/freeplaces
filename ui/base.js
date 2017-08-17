@@ -86,12 +86,31 @@ function exportfreeplaces() {
 }
 
 function generatePdf(){
-  var columns = ["ID", "Name"];
-var rows = returnfreeplaces("2");
-// Only pt supported (not mm or in)
-var doc = new jsPDF('p', 'pt');
-doc.autoTable(columns, rows);
-doc.save('table.pdf');
+  var doc = new jsPDF('p', 'pt');
+  var columns = ["StorageLocationId", "StorageLocationName"];
+  var rows = [];
+  var x = 0;
+  var pg = 1;
+  $.each(returnfreeplaces(2), function(){
+  	rows[x] = this;
+  	x++;
+  });
+  doc.autoTable(columns, rows, {
+    theme: "striped",
+    bodyStyles: {
+      lineColor: 1,
+      lineWidth: 1
+    },
+    headerStyles: {
+      lineColor: 1,
+      lineWidth: 1,
+      fillColor: 1,
+      textColor: 500
+    }
+  });
+
+
+  doc.save('FreePlaces.pdf');
 }
 
 function getfreeplaces(warehouseId) {
