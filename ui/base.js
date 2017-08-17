@@ -86,18 +86,12 @@ function exportfreeplaces() {
 }
 
 function generatePdf(){
-    var doc = new jsPDF();
-    var pdfhandler = {
-      'pdfElementHandler': function (element, renderer) {
-          return true;
-      }
-    };
-    var bootstrap = '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">';
-    doc.fromHTML(bootstrap+returnfreeplaces("1"), 15, 15, {
-          'width': 170,
-              'elementHandlers': pdfhandler
-      });
-      doc.save('FreePlaces.pdf');
+  var columns = ["ID", "Name"];
+var rows = returnfreeplaces("2");
+// Only pt supported (not mm or in)
+var doc = new jsPDF('p', 'pt');
+doc.autoTable(columns, rows);
+doc.save('table.pdf');
 }
 
 function getfreeplaces(warehouseId) {
@@ -350,6 +344,8 @@ function returnfreeplaces(exp = "0") {
         }
         if(exp == "1")
         {
+          html = html.replace("<table", "<table style='border-spacing: 2px !important;' ");
+          html = html.replace("<td", "<td style='padding: 2px;' ");
           return html;
         }
         return xreturn;
