@@ -69,16 +69,24 @@
             <div class="row">
                 <div class="filter col">
                     <p>Limit:&nbsp;</p><input type="number" id="freeplaceslimit" value="4" min="1">
-                    <p>Typ:&nbsp;</p><select id="freeplacestype">
+                    <p>Zweck:&nbsp;</p><select id="freeplaceszweck">
                 <option value="all">Alle</option>
-                <option value="small">klein</option>
-                <option value="medium">mittel</option>
-                <option value="large">groß</option>
-                <option value="europallet">Europalette</option>
+                <option value="replenishment">Nachschub</option>
+                <option value="picking">Entnahme</option>
+                <option value="incomingStock">Wareneingang</option>
+                <option value="return">Retoure</option>
+                <option value="localStore">Ladenlokal</option>
+                <option value="transfer">Umlagerung</option>
             </select>
-                    <p>Regal:&nbsp;</p>
-                    <div id="rackselect"><select id="freeplacesracks">
-            </select></div>
+                    <p>Status:&nbsp;</p>
+                    <select id="freeplacesstatus">
+                            <option value="all">Alle</option>
+                            <option value="active">Aktiv</option>
+                            <option value="inactive">Inaktiv</option>
+                            <option value="lockedForStockTaking">Für die Bestandsaufnahme gesperrt</option>
+                            <option value="locked">Gesperrt</option>
+                            <option value="reserved">Reserviert</option>
+                    </select>
                     <p></p>
 
                     <p>Boden:&nbsp;</p>
