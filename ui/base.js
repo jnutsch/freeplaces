@@ -8,6 +8,7 @@ var freeplaces = new Object();
 var shelves = new Object();
 var calced = 0;
 var userId = 0;
+
 /**
  * Funktion die, die Lagerorte eines Artikels findet
  * beachtet werden die LagerCheckboxen
@@ -144,84 +145,89 @@ function getfreeplaces(warehouseId) {
              */
             var limit = 4;
             var limitzaehler = 0;
+            var page = 1;
+            var isLastPage = true;
             $.ajax({
                 type: "GET",
-                url: "/rest/stockmanagement/warehouses/" + warehouseId + "/management/storageLocations",
+                url: "/rest/warehouses/"+warehouseId+"/locations",
                 headers: {
                     "Authorization": "Bearer " + localStorage.getItem("accessToken")
                 },
                 data: {
-                    itemsPerPage: "9999999"
+                    itemsPerPage: "100",
+                    page: page
                 },
                 success: function(data) {
-                    /**
-                     * Racks bekommen
-                     */
-                    $.ajax({
-                        type: "GET",
-                        url: "/rest/stockmanagement/warehouses/" + warehouseId + "/management/racks",
-                        headers: {
-                            "Authorization": "Bearer " + localStorage.getItem("accessToken")
-                        },
-                        data: {
-                            itemsPerPage: "9999999"
-                        },
-                        success: function(data) {
-                            var xhtml = "<select id='freeplacesracks'><option value='all'>Alle</option>";
-                            $.each(data.entries, function() {
-                                xhtml = xhtml + "<option value='" + this.id + "'>" + this.name + "</option>";
-                                $.ajax({
-                                    type: "GET",
-                                    url: "/rest/stockmanagement/warehouses/" + warehouseId + "/management/racks/" + this.id + "/shelves",
-                                    headers: {
-                                        "Authorization": "Bearer " + localStorage.getItem("accessToken")
-                                    },
-                                    data: {
-                                        itemsPerPage: "9999999"
-                                    },
-                                    success: function(data) {
+                    
 
-                                        $.each(data.entries, function() {
-                                            shelves[this.id] = new Object();
-                                            shelves[this.id] = this;
-                                        });
-                                    }
-                                });
-                            });
-                            xhtml = xhtml + "</select><script>$(document).ready(function(){$('#freeplacesracks').change( function(){changeregal($(this).val());});});</script>";
-                            $('#rackselect').html(xhtml);
-                            alert("Berechnung erfolgreich.");
-                            $('.btn').removeAttr("disabled");
-                        }
-                    });
 
+                    
                     $.each(data.entries, function() {
                         places[this.id] = new Object();
-                        places[this.id] = {
-                            name: this.name,
-                            type: this.type,
-                            rack: this.rackId,
-                            shelf: this.shelfId
-                        };
+                        places[this.id] = this;
                     });
-
                     $.each(places, function(id, place) {
-
                         if (typeof(filledplaces[id]) != "undefined") {} else {
                             freeplaces[id] = new Object();
                             freeplaces[id] = place;
                         }
-
                     });
+                    isLastPage = data.isLastPage
+                    
+                    while(isLastPage === false)
+                    {
+                        page++;
+                        $.ajax({
+                            type: "GET",
+                            url: "/rest/warehouses/"+warehouseId+"/locations",
+                            async: false,
+                            headers: {
+                                "Authorization": "Bearer " + localStorage.getItem("accessToken")
+                            },
+                            data: {
+                                itemsPerPage: "100",
+                                page: page
+                            },
+                            success: function(datax) {
+                                
+            
+            
+                                
+                                $.each(datax.entries, function() {
+                                    places[this.id] = new Object();
+                                    places[this.id] = this;
+                                });
+            
+                                $.each(places, function(id, place) {
+                                    if (typeof(filledplaces[id]) != "undefined") {} else {
+                                        freeplaces[id] = new Object();
+                                        freeplaces[id] = place;
+                                    }
+                                });
+            
+                                isLastPage = datax.isLastPage;
 
+                                if(page == datax.lastPageNumber)
+                                {
+                                    isLastPage = true;
+                                }
+
+                            },
+            
+                        });
+
+                    }
                 },
 
             });
-
+            
         },
 
     });
-
+    
+    $('.showplaces').removeAttr("disabled");
+    $('.export').removeAttr("disabled");
+    $('.pdf').removeAttr("disabled");
 }
 
 function changeregal(id) {
@@ -287,71 +293,11 @@ function returnfreeplaces(exp = "0") {
             if (limitzaehler == limit) {
                 return false;
             }
-
-            if (rackId == "all" && shelvId == "all" && type == "all") {
-                limitzaehler++;
-                results++;
-                html = html + "<tr><td>" + id + "</td><td>" + place.name + "</td></tr>";
-                xreturn[results] = new Object();
-                xreturn[results] = [id, place.name];
-            } else if (rackId == "all" && shelvId == "all" && type != "all") {
-                if (place.type == type) {
-                    limitzaehler++;
-                    results++;
-                    html = html + "<tr><td>" + id + "</td><td>" + place.name + "</td></tr>";
-                    xreturn[results] = new Object();
-                    xreturn[results] = [id, place.name];
-                }
-            } else if (rackId == "all" && shelvId != "all" && type == "all") {
-                if (place.shelf == shelvId) {
-                    limitzaehler++;
-                    results++;
-                    html = html + "<tr><td>" + id + "</td><td>" + place.name + "</td></tr>";
-                    xreturn[results] = new Object();
-                    xreturn[results] = [id, place.name];
-                }
-            } else if (rackId != "all" && shelvId == "all" && type == "all") {
-                if (place.rack == rackId) {
-                    limitzaehler++;
-                    results++;
-                    html = html + "<tr><td>" + id + "</td><td>" + place.name + "</td></tr>";
-                    xreturn[results] = new Object();
-                    xreturn[results] = [id, place.name];
-                }
-            } else if (rackId == "all" && shelvId != "all" && type != "all") {
-                if (place.shelf == shelvId && place.type == type) {
-                    limitzaehler++;
-                    results++;
-                    html = html + "<tr><td>" + id + "</td><td>" + place.name + "</td></tr>";
-                    xreturn[results] = new Object();
-                    xreturn[results] = [id, place.name];
-                }
-            } else if (rackId != "all" && shelvId != "all" && type == "all") {
-                if (place.shelf == shelvId && place.rack == rackId) {
-                    limitzaehler++;
-                    results++;
-                    html = html + "<tr><td>" + id + "</td><td>" + place.name + "</td></tr>";
-                    xreturn[results] = new Object();
-                    xreturn[results] = [id, place.name];
-                }
-            } else if (rackId != "all" && shelvId == "all" && type != "all") {
-                if (place.rack == rackId && place.type == type) {
-                    limitzaehler++;
-                    results++;
-                    html = html + "<tr><td>" + id + "</td><td>" + place.name + "</td></tr>";
-                    xreturn[results] = new Object();
-                    xreturn[results] = [id, place.name];
-                }
-            } else if (rackId != "all" && shelvId != "all" && type != "all") {
-                if (place.shelf == shelvId && place.rack == rackId && place.type == type) {
-                    limitzaehler++;
-                    results++;
-                    html = html + "<tr><td>" + id + "</td><td>" + place.name + "</td></tr>";
-                    xreturn[results] = new Object();
-                    xreturn[results] = [id, place.name];
-                }
-            }
-
+            results++;
+            limitzaehler++;
+            html = html + "<tr><td>" + id + "</td><td>" + place.label + "</td></tr>";
+            xreturn[results] = new Object();
+            xreturn[results] = [id, place.label];
         });
         html = html + "</table>";
         if (exp == "0") {
@@ -460,30 +406,9 @@ $(document).ready(function() {
         generatePdf();
     });
 
-    setInterval(function() {
-        var pins = $('#loadingpins').attr("pins");
-        switch (pins) {
-            case "0":
-                $('#loadingpins').text(".");
-                $('#loadingpins').attr("pins", "1");
-                break;
-            case "1":
-                $('#loadingpins').text("..");
-                $('#loadingpins').attr("pins", "2");
-                break;
-            case "2":
-                $('#loadingpins').text("...");
-                $('#loadingpins').attr("pins", "3");
-                break;
-            case "3":
-                $('#loadingpins').text("....");
-                $('#loadingpins').attr("pins", "0");
-                break;
-
-        }
-    }, 500);
 
     setTimeout(function() {
+        $('.updatemessage').fadeOut(500);
         $('.ueberschnittmessage').fadeOut(250);
     }, 7500);
 });
