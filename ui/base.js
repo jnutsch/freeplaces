@@ -293,11 +293,23 @@ function returnfreeplaces(exp = "0") {
             if (limitzaehler == limit) {
                 return false;
             }
-            results++;
-            limitzaehler++;
-            html = html + "<tr><td>" + id + "</td><td>" + place.label + "</td></tr>";
-            xreturn[results] = new Object();
-            xreturn[results] = [id, place.label];
+
+            if(type == "all")
+            {
+                results++;
+                limitzaehler++;
+                html = html + "<tr><td>" + id + "</td><td>" + place.label + "</td></tr>";
+                xreturn[results] = new Object();
+                xreturn[results] = [id, place.label];
+            }
+            else if(type == place.type)
+            {
+                results++;
+                limitzaehler++;
+                html = html + "<tr><td>" + id + "</td><td>" + place.label + "</td></tr>";
+                xreturn[results] = new Object();
+                xreturn[results] = [id, place.label];    
+            }
         });
         html = html + "</table>";
         if (exp == "0") {
@@ -408,7 +420,10 @@ $(document).ready(function() {
 
 
     setTimeout(function() {
-        $('.updatemessage').fadeOut(500);
         $('.ueberschnittmessage').fadeOut(250);
     }, 7500);
+
+    setTimeout(function() {
+        $('.updatemessage').fadeOut(250);
+    }, 15000);
 });

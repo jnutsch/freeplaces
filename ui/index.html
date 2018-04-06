@@ -43,7 +43,7 @@
         <center><img class="icon" src="icon.png" height="250px"></img>
         </center>
         <div id="freeplacessettings">
-            <p class="text-danger ueberschnittmessage" style="font-weight: 700">Durch das Update auf Version 1.0.2 kann es passieren das Plenty einfriert bis die Lagerorte berechnet sind, außerdem sind derzeit keine Filtermöglichkeiten vorhanden - vielen Dank für Ihr Verständnis</p>                
+            <p class="text-danger ueberschnittmessage" style="font-weight: 700">Durch das Update auf Version 1.0.2 kann es passieren das Plenty einfriert bis die Lagerorte berechnet sind, außerdem sind derzeit keine Filtermöglichkeiten im Bereich Regal und Boden vorhanden - vielen Dank für Ihr Verständnis</p>                
             <p class="text-danger ueberschnittmessage">Die freien Lagerorte werden bei jeder Berechnung lokal gespeichert, bei Mehrfachnutzung des Plugins kann es zu Überschneidungen der Lagerorte kommen.</p>
             <h5>Menü</h5>
             <div class="row">
@@ -70,6 +70,13 @@
             <div class="row">
                 <div class="filter col">
                     <p>Limit:&nbsp;</p><input type="number" id="freeplaceslimit" value="4" min="1">
+                    <p>Typ:&nbsp;</p><select id="freeplacestype">
+                            <option value="all">Alle</option>
+                            <option value="small">klein</option>
+                            <option value="medium">mittel</option>
+                            <option value="large">groß</option>
+                            <option value="europallet">Europalette</option>
+                        </select>
                     <!--
                     <p>Zweck:&nbsp;</p><select id="freeplaceszweck">
                         <option value="all">Alle</option>
