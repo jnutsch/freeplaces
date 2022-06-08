@@ -287,7 +287,7 @@ function returnfreeplaces(exp = "0") {
         var shelvId = $('#shelvselects').val();
         var limitzaehler = 0;
         var results = 0;
-        var html = "<table class='table table-striped table-bordered'><th>storageLocationId</th><th>storageLocationName</th>";
+        var html = "<table class='table table-striped table-bordered'><th>Lagerort ID</th><th>Lagerort Name</th>";
         var xreturn = new Object();
         $.each(freeplaces, function(id, place) {
             if (limitzaehler == limit) {
